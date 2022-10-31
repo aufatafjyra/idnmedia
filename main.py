@@ -9,39 +9,40 @@ def main():
     driver.implicitly_wait(10)
 
     if driver.find_elements("xpath", "//div[@class='header-logo']"):
-        print("Logo Passed")
+        print("Logo: Passed")
     else: 
-        print("Logo Failed")
+        print("Logo: Failed")
 
     if driver.find_elements("xpath", "//i[@class='idn-mini-icon idn-search']"):
-        print("Search Button Passed")
+        print("Search Button: Passed")
     else: 
-        print("Search Button Failed")
+        print("Search Button: Failed")
     
     if driver.find_elements("xpath", "//a[@class='btn join-btn']"):
-        print("Login/Register Button Passed")
+        print("Login/Register Button: Passed")
     else: 
-        print("Login/Register Button Failed")
+        print("Login/Register Button: Failed")
 
     if driver.find_element("xpath", "//nav[@class='header-navbar']"):
-        print("Menu Bar Passed")
+        print("Menu Bar: Passed")
     else: 
-        print("Menu Bar Failed")
+        print("Menu Bar: Failed")
     
     if driver.find_element("xpath", "//section[@id='headline']"):
-        print("Headline Section Passed")
+        print("Headline Section: Passed")
     else: 
-        print("Headline Section Failed")
+        print("Headline Section: Failed")
     
     if driver.find_element("xpath", "//section[@class='wrapper-trending clearfix']"):
-        print("Trending Section Passed")
-    else: 
-        print("Trending Section Failed")
+        count = len(driver.find_elements("xpath", "//section[@class='wrapper-trending clearfix']//div[@class='slick-track']//div[@class='slick-slide slick-active' or @class='slick-slide slick-current slick-active']"))
+        if count == 5:
+            print("Trending Section: ", count, "News Passed")
     
-    if driver.find_element("xpath", "//div[@class='left-content']"):
-        print("Latest Section Passed")
+    if driver.find_element("xpath", "//section[@class='latest-post clearfix']//span[text()='Berita Terkini']"):
+        count = len(driver.find_element("xpath", "//section[@class='//section[@class='latest-post clearfix'][1]//div[@class='list-latest main-latest clearfix' or @class='list-latest sub-latest clearfix']"))
+        print("Latest Section ", count, " News: Passed")
     else: 
-        print("Latest Section Failed")
+        print("Latest Section News: Failed")
     
     if driver.find_elements("xpath", "//section[@class='latest-post clearfix']//span[text()='News']"):
         print("Section Category 1 Passed")
@@ -72,28 +73,6 @@ def main():
         print("Footer Passed")
     else: 
         print("Footer Failed")
-
-    # driver.find_element("xpath", "//img[@alt='IDN Times']").click()
-    # print("Logo OK")
-
-    # driver.find_element("xpath", "//a[@class='btn join-btn']").click()
-    # print("Login/Register OK")
-    # driver.implicitly_wait(10)
-    # time.sleep(5)
-    # driver.find_element("xpath", "//a[@class='btn-back']").click()
-    # driver.implicitly_wait(10)
-
-    # driver.find_element("xpath", "//a[@href='#search-modal']").click()
-    # time.sleep(5)
-    # driver.find_element("xpath", "//input[@type='search']").send_keys("Korea")
-    # time.sleep(5)
-    # driver.find_element("xpath", "//button[@class='close']").click()
-    # print("Search OK")
-    # driver.implicitly_wait(10)
-
-    # driver.find_element("xpath", "//section[@id='headline']")
-    # count = len(driver.find_elements("xpath", "//div[@class='slick-slide']"))
-    # print(count)
 
     driver.quit()
 
