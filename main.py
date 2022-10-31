@@ -39,40 +39,20 @@ def main():
             print("Trending Section: ", count, "News Passed")
     
     if driver.find_element("xpath", "//section[@class='latest-post clearfix']//span[text()='Berita Terkini']"):
-        count = len(driver.find_element("xpath", "//section[@class='//section[@class='latest-post clearfix'][1]//div[@class='list-latest main-latest clearfix' or @class='list-latest sub-latest clearfix']"))
-        print("Latest Section ", count, " News: Passed")
+        print("Latest Section News: Passed")
     else: 
         print("Latest Section News: Failed")
     
-    if driver.find_elements("xpath", "//section[@class='latest-post clearfix']//span[text()='News']"):
-        print("Section Category 1 Passed")
-    else: 
-        print("Section Category 1 Failed")
-    
-    if driver.find_elements("xpath", "//section[@class='latest-post clearfix']//span[text()='Hype']"):
-        print("Section Category 2 Passed")
-    else: 
-        print("Section Category 2 Failed")
-    
-    if driver.find_elements("xpath", "//section[@class='latest-post clearfix']//span[text()='Life']"):
-        print("Section Category 3 Passed")
-    else: 
-        print("Section Category 3 Failed")
-    
-    if driver.find_elements("xpath", "//section[@class='latest-post clearfix']//span[text()='Men']"):
-        print("Section Category 4 Passed")
-    else: 
-        print("Section Category 4 Failed")
-    
-    if driver.find_elements("xpath", "//section[@class='latest-post clearfix']//span[text()='Science']"):
-        print("Section Category 5 Passed")
-    else: 
-        print("Section Category 5 Failed")
+    if driver.find_elements("xpath", "//section[@class='latest-post clearfix']"):
+        count = len(driver.find_elements("xpath", "//section[@class='latest-post clearfix']"))
+        news = len()
+        if count == 6:
+            print("Section Category 5 Categories: Passed")
     
     if driver.find_elements("xpath", "//footer[@class='static-footer']"):
-        print("Footer Passed")
+        print("Footer: Passed")
     else: 
-        print("Footer Failed")
+        print("Footer: Failed")
 
     driver.quit()
 
