@@ -29,26 +29,33 @@ def main():
         print("Menu Bar: Failed")
     
     if driver.find_element("xpath", "//section[@id='headline']"):
-        print("Headline Section: Passed")
+        count = len(driver.find_elements("xpath", "//section[@class='wrapper-trending clearfix']//div[@class='slick-track']//div[@class='slick-slide slick-active' or @class='slick-slide slick-current slick-active']"))
+        if count == 5:
+            print("Headline Section: ", count, "News Passed")
     else: 
         print("Headline Section: Failed")
     
     if driver.find_element("xpath", "//section[@class='wrapper-trending clearfix']"):
-        count = len(driver.find_elements("xpath", "//section[@class='wrapper-trending clearfix']//div[@class='slick-track']//div[@class='slick-slide slick-active' or @class='slick-slide slick-current slick-active']"))
-        if count == 5:
-            print("Trending Section: ", count, "News Passed")
-    
-    if driver.find_element("xpath", "//section[@class='latest-post clearfix']//span[text()='Berita Terkini']"):
-        print("Latest Section News: Passed")
-    else: 
-        print("Latest Section News: Failed")
+        news1 = len(driver.find_elements("xpath", "//section[@class='latest-post clearfix'][1]//div[@class='list-latest main-latest clearfix'][1]//div[@class='box-latest box-list ']"))
+        news2 = len(driver.find_elements("xpath", "//section[@class='latest-post clearfix'][1]//div[@class='list-latest sub-latest clearfix'][1]//div[@class='box-latest box-list ']"))
+        if news1 == 2 and news2 == 16:
+            print("Latest Section 18 News: Passed")
+        elif news1 < 2 and news2 < 16:
+            print("Latest Section News Quantity Failed")
     
     if driver.find_elements("xpath", "//section[@class='latest-post clearfix']"):
         count = len(driver.find_elements("xpath", "//section[@class='latest-post clearfix']"))
-        news = len()
         if count == 6:
             print("Section Category 5 Categories: Passed")
     
+    if driver.find_elements("xpath", "//section[@class='latest-post clearfix']"):
+        news1 = len(driver.find_elements("xpath", "//section[@class='latest-post clearfix'][2]//div[@class='list-latest main-latest clearfix'][1]//div[@class='box-latest box-list ']"))
+        news2 = len(driver.find_elements("xpath", "//section[@class='latest-post clearfix'][2]//div[@class='list-latest sub-latest clearfix'][1]//div[@class='box-latest box-list ']"))
+        if news1 == 2 and news2 == 8:
+            print("Section Category 10 News: Passed")
+        elif news1 < 2 and news2 < 8:
+            print("Section Category News Quantity Failed")
+
     if driver.find_elements("xpath", "//footer[@class='static-footer']"):
         print("Footer: Passed")
     else: 
